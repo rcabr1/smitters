@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FormTeamComponent } from './form-team/form-team.component';
+import { FormTeamComponent } from './components/form-team/form-team.component';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,4 @@ import { FormTeamComponent } from './form-team/form-team.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-}
+export class AppComponent {}
