@@ -1,0 +1,32 @@
+.form-team-container {
+    display: grid;
+    flex-direction: column;
+    gap: 16px;
+
+    label {
+        font-size: 24px;
+    }
+
+    .head {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .row {
+        display: grid;
+        grid-row-gap: 16px;
+
+        .row-options {
+            display: grid;
+            grid-column-gap: 16px;
+        }
+    }
+
+    .list {
+        border: 1px solid;
+        border-radius: 16px;
+        padding: 16px;
+        margin-bottom: 64px;
+    }
+}
+

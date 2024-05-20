@@ -1,0 +1,38 @@
+<form class="form-team-container">
+    <div class="head">
+        <mat-radio-group [(ngModel)]="teams" (change)="updateTeams()" name="teams">
+            <mat-label>Número de times:</mat-label>
+            <mat-radio-button [value]="2">2</mat-radio-button>
+            <mat-radio-button [value]="3">3</mat-radio-button>
+            <mat-radio-button [value]="4">4</mat-radio-button>
+        </mat-radio-group>
+        <button mat-raised-button (click)="shuffleTeams()">Sortear</button>
+    </div>
+    @for (rolePlayers of rolePlayersArray; track rolePlayers) {
+        <div class="row">
+            <label>{{rolePlayers.role}}</label>
+            <div class="row-options" [ngStyle]="{'grid-template-columns': getTeamRowsGridStyle()}">
+                @for (_ of [].constructor(teams); track _) {
+                    <mat-form-field>
+                        <mat-label>Opção {{$index + 1}}</mat-label>
+                        <input
+                            type="text"
+                            [(ngModel)]="rolePlayers.players[$index]"
+                            [name]="'rolePlayers.players[' + $index + ']'"
+                            (input)="updateRolePlayersArray()"
+                            matInput
+                        >
+                    </mat-form-field>
+                }
+            </div>
+        </div>
+    }
+    <div class="list">
+        <label>Divisão dos times:</label>
+        <mat-list>
+            @for (team of shuffledTeams; track team) {
+                <mat-list-item>Time {{$index + 1}}: {{team}}</mat-list-item>
+            }
+        </mat-list>
+    </div>
+</form>
